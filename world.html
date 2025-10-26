@@ -9,13 +9,15 @@
 <body>
     
     <header class="site-header">
-        <div class="container">
-            <div class="top-bar">
+        <div class="top-bar">
+            <div class="container">
                 <span id="current-date">October 27, 2025</span>
-                <span>Today's Paper</span>
+                <span>Follow us: X / Facebook</span>
             </div>
-            <div class="nav-container">
-                <h1 class="site-title">ProNews</h1>
+        </div>
+        <div class="main-header">
+            <div class="container">
+                <h1 class="site-title"><a href="index.html">ProNews</a></h1>
                 <nav class="main-nav">
                     <ul>
                         <li><a href="index.html">Home</a></li>
@@ -29,52 +31,64 @@
         </div>
     </header>
 
-    <main>
-        <div class="container">
-            <h2 class="page-heading">World News</h2>
+    <div class="page-container container">
+        
+        <main class="main-content">
+            <h2 class="page-heading" style="font-family: var(--font-heading); font-size: 2rem; border-bottom: 3px solid var(--color-dark); padding-bottom: 0.5rem; margin-bottom: 2rem;">World News</h2>
             
-            <div class="news-grid">
+            <div class="article-list">
                 
                 <article class="article-card">
                     <img src="https://images.pexels.com/photos/3408744/pexels-photo-3408744.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Mountain summit">
                     <div class="article-content">
+                        <span class="article-category">World</span>
                         <h3><a href="#">Global Summit Concludes with New Climate Accord</a></h3>
-                        <p>World leaders have agreed to a new set of binding targets to reduce emissions, marking a significant step in international cooperation.</p>
-                        <a href="#" class="read-more">Read More</a>
+                        <span class="article-meta">By Ana Ortiz / Oct 25, 2025</span>
+                        <p class="article-excerpt">World leaders have agreed to a new set of binding targets to reduce emissions, marking a significant step in international cooperation.</p>
                     </div>
                 </article>
 
                 <article class="article-card">
                     <img src="https://images.pexels.com/photos/235615/pexels-photo-235615.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Globe showing continents">
                     <div class="article-content">
+                        <span class="article-category">Politics</span>
                         <h3><a href="#">Major Protests Erupt Over Economic Policies</a></h3>
-                        <p>Thousands have taken to the streets in several capital cities to protest rising inflation and new economic measures.</p>
-                        <a href="#" class="read-more">Read More</a>
-                    </div>
-                </article>
-                
-                <article class="article-card">
-                    <img src="https://images.pexels.com/photos/3184454/pexels-photo-3184454.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Diplomats at a table">
-                    <div class="article-content">
-                        <h3><a href="#">Trade Negotiations Stall Between Major Powers</a></h3>
-                        <p>The latest round of talks ended without an agreement, raising concerns about the future of global trade partnerships.</p>
-                        <a href="#" class="read-more">Read More</a>
+                        <span class="article-meta">By Reuters / Oct 24, 2025</span>
+                        <p class="article-excerpt">Thousands have taken to the streets in several capital cities to protest rising inflation and new economic measures.</p>
                     </div>
                 </article>
 
             </div>
-        </div>
-    </main>
-
-    <footer class="site-footer">
+        </main>
+        
+        <aside class="sidebar">
+            <div class="widget">
+                <h4 class="widget-title">Top Stories</h4>
+                <div class="widget-post-list">
+                    <div class="widget-post">
+                        <img src="https://images.pexels.com/photos/3861958/pexels-photo-3861958.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="AI">
+                        <div>
+                            <h4><a href="#">New Breakthrough in AI Development</a></h4>
+                        </div>
+                    </div>
+                    <div class="widget-post">
+                        <img src="https://images.pexels.com/photos/270085/pexels-photo-270085.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Soccer ball">
+                        <div>
+                            <h4><a href="#">Champions Final Ends in Dramatic Shootout</a></h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        
+    </div> <footer class="site-footer">
         <p>&copy; 2025 ProNews. All Rights Reserved.</p>
     </footer>
-    
+
     <script>
         document.getElementById('current-date').textContent = new Date().toLocaleDateString('en-US', {
             year: 'numeric', month: 'long', day: 'numeric'
         });
     </script>
-
 </body>
 </html>
