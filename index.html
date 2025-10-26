@@ -9,13 +9,15 @@
 <body>
     
     <header class="site-header">
-        <div class="container">
-            <div class="top-bar">
+        <div class="top-bar">
+            <div class="container">
                 <span id="current-date">October 27, 2025</span>
-                <span>Today's Paper</span>
+                <span>Follow us: X / Facebook</span>
             </div>
-            <div class="nav-container">
-                <h1 class="site-title">ProNews</h1>
+        </div>
+        <div class="main-header">
+            <div class="container">
+                <h1 class="site-title"><a href="index.html">ProNews</a></h1>
                 <nav class="main-nav">
                     <ul>
                         <li><a href="index.html" class="active">Home</a></li>
@@ -29,48 +31,80 @@
         </div>
     </header>
 
-    <main>
-        <div class="container">
+    <div class="page-container container">
+        
+        <main class="main-content">
             
             <div class="hero-grid">
                 
-                <section class="hero-main">
+                <div class="hero-main">
                     <article class="article-card">
                         <img src="https://images.pexels.com/photos/3861958/pexels-photo-3861958.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="AI and technology">
                         <div class="article-content">
+                            <span class="article-category">Technology</span>
                             <h3><a href="#">New Breakthrough in AI Development</a></h3>
-                            <p>Scientists announce a new model that can learn with 90% less data, paving the way for more efficient artificial intelligence systems.</p>
-                            <a href="#" class="read-more">Read More</a>
+                            <span class="article-meta">By Jane Doe / Oct 26, 2025</span>
+                            <p class="article-excerpt">Scientists announce a new model that can learn with 90% less data, paving the way for more efficient artificial intelligence systems.</p>
                         </div>
                     </article>
-                </section>
-                
-                <aside class="hero-sidebar">
-                    <h4>Top Stories</h4>
+                </div>
+
+                <div class="hero-secondary">
                     <article class="article-card">
                         <img src="https://images.pexels.com/photos/7876709/pexels-photo-7876709.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Stock market charts">
                         <div class="article-content">
+                            <span class="article-category">Business</span>
                             <h3><a href="#">Global Markets React to New Policies</a></h3>
+                            <span class="article-meta">By John Smith / Oct 26, 2025</span>
                         </div>
                     </article>
+                </div>
+                
+                <div class="hero-secondary">
                     <article class="article-card">
                         <img src="https://www.nasa.gov/sites/default/files/styles/full_width/public/thumbnails/image/pia25800-perseverance-set-sol-961.jpg" alt="Mars rover">
                         <div class="article-content">
+                            <span class="article-category">Science</span>
                             <h3><a href="#">Mars Rover Finds Surprising Geological Data</a></h3>
+                            <span class="article-meta">By NASA / Oct 25, 2025</span>
                         </div>
                     </article>
-                    <article class="article-card">
-                        <img src="https://images.pexels.com/photos/5717415/pexels-photo-5717415.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Person at a clean home office">
-                        <div class="article-content">
-                           <h3><a href="#">The Future of Work: Is Hybrid Here to Stay?</a></h3>
-                        </div>
-                    </article>
-                </aside>
+                </div>
                 
-            </div> </div>
-    </main>
+            </div>
+        </main>
+        
+        <aside class="sidebar">
+            <div class="widget">
+                <h4 class="widget-title">Top Stories</h4>
+                <div class="widget-post-list">
+                    
+                    <div class="widget-post">
+                        <img src="https://images.pexels.com/photos/5717415/pexels-photo-5717415.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Home office">
+                        <div>
+                            <h4><a href="#">The Future of Work: Is Hybrid Here to Stay?</a></h4>
+                        </div>
+                    </div>
+                    
+                    <div class="widget-post">
+                        <img src="https://images.pexels.com/photos/270085/pexels-photo-270085.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Soccer ball">
+                        <div>
+                            <h4><a href="#">Champions Final Ends in Dramatic Shootout</a></h4>
+                        </div>
+                    </div>
+                    
+                    <div class="widget-post">
+                        <img src="https://images.pexels.com/photos/3408744/pexels-photo-3408744.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Mountain summit">
+                        <div>
+                            <h4><a href="#">Global Summit Concludes with New Climate Accord</a></h4>
+                        </div>
+                    </div>
 
-    <footer class="site-footer">
+                </div>
+            </div>
+        </aside>
+        
+    </div> <footer class="site-footer">
         <p>&copy; 2025 ProNews. All Rights Reserved.</p>
     </footer>
     
