@@ -9,17 +9,23 @@
 <body>
     
     <header class="site-header">
-        <div class="nav-container">
-            <h1 class="site-title">ProNews</h1>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="world.html">World</a></li>
-                    <li><a href="technology.html">Technology</a></li>
-                    <li><a href="business.html">Business</a></li>
-                    <li><a href="sports.html" class="active">Sports</a></li>
-                </ul>
-            </nav>
+        <div class="container">
+            <div class="top-bar">
+                <span id="current-date">October 27, 2025</span>
+                <span>Today's Paper</span>
+            </div>
+            <div class="nav-container">
+                <h1 class="site-title">ProNews</h1>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="world.html">World</a></li>
+                        <li><a href="technology.html">Technology</a></li>
+                        <li><a href="business.html">Business</a></li>
+                        <li><a href="sports.html" class="active">Sports</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </header>
 
@@ -32,7 +38,7 @@
                 <article class="article-card">
                     <img src="https://images.pexels.com/photos/270085/pexels-photo-270085.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Soccer ball on a field">
                     <div class="article-content">
-                        <h3>Champions Final Ends in Dramatic Shootout</h3>
+                        <h3><a href="#">Champions Final Ends in Dramatic Shootout</a></h3>
                         <p>After a grueling 120 minutes, the championship was decided by penalty kicks in one of the most exciting finals in recent history.</p>
                         <a href="#" class="read-more">Read More</a>
                     </div>
@@ -41,8 +47,17 @@
                 <article class="article-card">
                     <img src="https://images.pexels.com/photos/1752757/pexels-photo-1752757.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Basketball player jumping for a shot">
                     <div class="article-content">
-                        <h3>Star Player Signs Record-Breaking Contract</h3>
+                        <h3><a href="#">Star Player Signs Record-Breaking Contract</a></h3>
                         <p>The league's MVP has signed a 5-year, $250 million contract extension, the largest deal in the sport's history.</p>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </article>
+                
+                <article class="article-card">
+                    <img src="https://images.pexels.com/photos/1618269/pexels-photo-1618269.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Formula 1 car on a track">
+                    <div class="article-content">
+                        <h3><a href="#">New Team Enters F1 Championship Race</a></h3>
+                        <p>A surprise announcement today as a new constructor confirms their entry for the next racing season, shaking up the grid.</p>
                         <a href="#" class="read-more">Read More</a>
                     </div>
                 </article>
@@ -55,5 +70,10 @@
         <p>&copy; 2025 ProNews. All Rights Reserved.</p>
     </footer>
 
+    <script>
+        document.getElementById('current-date').textContent = new Date().toLocaleDateString('en-US', {
+            year: 'numeric', month: 'long', day: 'numeric'
+        });
+    </script>
 </body>
 </html>
