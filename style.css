@@ -91,7 +91,7 @@ main .container {
     padding-bottom: 2.5rem;
 }
 
-.latest-news h2 {
+.page-heading {
     font-family: var(--font-heading);
     font-size: 2.5rem;
     color: var(--color-dark-bg);
@@ -183,7 +183,7 @@ main .container {
         justify-content: center;
     }
     
-    .latest-news h2 {
+    .page-heading {
         font-size: 2rem;
     }
 }
