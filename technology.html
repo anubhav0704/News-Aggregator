@@ -9,13 +9,15 @@
 <body>
     
     <header class="site-header">
-        <div class="container">
-            <div class="top-bar">
+        <div class="top-bar">
+            <div class="container">
                 <span id="current-date">October 27, 2025</span>
-                <span>Today's Paper</span>
+                <span>Follow us: X / Facebook</span>
             </div>
-            <div class="nav-container">
-                <h1 class="site-title">ProNews</h1>
+        </div>
+        <div class="main-header">
+            <div class="container">
+                <h1 class="site-title"><a href="index.html">ProNews</a></h1>
                 <nav class="main-nav">
                     <ul>
                         <li><a href="index.html">Home</a></li>
@@ -29,44 +31,57 @@
         </div>
     </header>
 
-    <main>
-        <div class="container">
-            <h2 class="page-heading">Technology News</h2>
+    <div class="page-container container">
+        
+        <main class="main-content">
+            <h2 class="page-heading" style="font-family: var(--font-heading); font-size: 2rem; border-bottom: 3px solid var(--color-dark); padding-bottom: 0.5rem; margin-bottom: 2rem;">Technology News</h2>
             
-            <div class="news-grid">
+            <div class="article-list">
                 
                 <article class="article-card">
                     <img src="https://images.pexels.com/photos/3861958/pexels-photo-3861958.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="AI and technology">
                     <div class="article-content">
+                        <span class="article-category">Technology</span>
                         <h3><a href="#">New Breakthrough in AI Development</a></h3>
-                        <p>Scientists announce a new model that can learn with 90% less data, paving the way for more efficient artificial intelligence systems.</p>
-                        <a href="#" class="read-more">Read More</a>
+                        <span class="article-meta">By Jane Doe / Oct 26, 2025</span>
+                        <p class="article-excerpt">Scientists announce a new model that can learn with 90% less data, paving the way for more efficient artificial intelligence systems.</p>
                     </div>
                 </article>
 
                 <article class="article-card">
                     <img src="https://images.pexels.com/photos/5071178/pexels-photo-5071178.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Quantum computer">
                     <div class="article-content">
+                        <span class="article-category">Science</span>
                         <h3><a href="#">Quantum Computing Reaches New Milestone</a></h3>
-                        <p>Researchers have successfully maintained a quantum state for a record-breaking 10 seconds, opening doors for new computational power.</p>
-                        <a href="#" class="read-more">Read More</a>
-                    </div>
-                </article>
-
-                <article class="article-card">
-                    <img src="https://images.pexels.com/photos/4126743/pexels-photo-4126743.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Person using VR headset">
-                    <div class="article-content">
-                        <h3><a href="#">The Next-Gen VR Headsets Are Here</a></h3>
-                        <p>A review of the latest virtual reality hardware, promising unprecedented immersion and a true leap towards the metaverse.</p>
-                        <a href="#" class="read-more">Read More</a>
+                        <span class="article-meta">By Tech Review / Oct 25, 2025</span>
+                        <p class="article-excerpt">Researchers have successfully maintained a quantum state for a record-breaking 10 seconds, opening doors for new computational power.</p>
                     </div>
                 </article>
 
             </div>
-        </div>
-    </main>
-
-    <footer class="site-footer">
+        </main>
+        
+        <aside class="sidebar">
+            <div class="widget">
+                <h4 class="widget-title">Top Stories</h4>
+                <div class="widget-post-list">
+                    <div class="widget-post">
+                        <img src="https://images.pexels.com/photos/7876709/pexels-photo-7876709.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Stocks">
+                        <div>
+                            <h4><a href="#">Global Markets React to New Policies</a></h4>
+                        </div>
+                    </div>
+                    <div class="widget-post">
+                        <img src="https://images.pexels.com/photos/270085/pexels-photo-270085.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Soccer ball">
+                        <div>
+                            <h4><a href="#">Champions Final Ends in Dramatic Shootout</a></h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        
+    </div> <footer class="site-footer">
         <p>&copy; 2025 ProNews. All Rights Reserved.</p>
     </footer>
 
