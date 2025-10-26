@@ -9,17 +9,23 @@
 <body>
     
     <header class="site-header">
-        <div class="nav-container">
-            <h1 class="site-title">ProNews</h1>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="world.html">World</a></li>
-                    <li><a href="technology.html" class="active">Technology</a></li>
-                    <li><a href="business.html">Business</a></li>
-                    <li><a href="sports.html">Sports</a></li>
-                </ul>
-            </nav>
+        <div class="container">
+            <div class="top-bar">
+                <span id="current-date">October 27, 2025</span>
+                <span>Today's Paper</span>
+            </div>
+            <div class="nav-container">
+                <h1 class="site-title">ProNews</h1>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="world.html">World</a></li>
+                        <li><a href="technology.html" class="active">Technology</a></li>
+                        <li><a href="business.html">Business</a></li>
+                        <li><a href="sports.html">Sports</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </header>
 
@@ -32,7 +38,7 @@
                 <article class="article-card">
                     <img src="https://images.pexels.com/photos/3861958/pexels-photo-3861958.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="AI and technology">
                     <div class="article-content">
-                        <h3>New Breakthrough in AI Development</h3>
+                        <h3><a href="#">New Breakthrough in AI Development</a></h3>
                         <p>Scientists announce a new model that can learn with 90% less data, paving the way for more efficient artificial intelligence systems.</p>
                         <a href="#" class="read-more">Read More</a>
                     </div>
@@ -41,7 +47,7 @@
                 <article class="article-card">
                     <img src="https://images.pexels.com/photos/5071178/pexels-photo-5071178.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Quantum computer">
                     <div class="article-content">
-                        <h3>Quantum Computing Reaches New Milestone</h3>
+                        <h3><a href="#">Quantum Computing Reaches New Milestone</a></h3>
                         <p>Researchers have successfully maintained a quantum state for a record-breaking 10 seconds, opening doors for new computational power.</p>
                         <a href="#" class="read-more">Read More</a>
                     </div>
@@ -50,7 +56,7 @@
                 <article class="article-card">
                     <img src="https://images.pexels.com/photos/4126743/pexels-photo-4126743.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Person using VR headset">
                     <div class="article-content">
-                        <h3>The Next-Gen VR Headsets Are Here</h3>
+                        <h3><a href="#">The Next-Gen VR Headsets Are Here</a></h3>
                         <p>A review of the latest virtual reality hardware, promising unprecedented immersion and a true leap towards the metaverse.</p>
                         <a href="#" class="read-more">Read More</a>
                     </div>
@@ -64,5 +70,10 @@
         <p>&copy; 2025 ProNews. All Rights Reserved.</p>
     </footer>
 
+    <script>
+        document.getElementById('current-date').textContent = new Date().toLocaleDateString('en-US', {
+            year: 'numeric', month: 'long', day: 'numeric'
+        });
+    </script>
 </body>
 </html>
