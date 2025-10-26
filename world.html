@@ -9,17 +9,23 @@
 <body>
     
     <header class="site-header">
-        <div class="nav-container">
-            <h1 class="site-title">ProNews</h1>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="world.html" class="active">World</a></li>
-                    <li><a href="technology.html">Technology</a></li>
-                    <li><a href="business.html">Business</a></li>
-                    <li><a href="sports.html">Sports</a></li>
-                </ul>
-            </nav>
+        <div class="container">
+            <div class="top-bar">
+                <span id="current-date">October 27, 2025</span>
+                <span>Today's Paper</span>
+            </div>
+            <div class="nav-container">
+                <h1 class="site-title">ProNews</h1>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="world.html" class="active">World</a></li>
+                        <li><a href="technology.html">Technology</a></li>
+                        <li><a href="business.html">Business</a></li>
+                        <li><a href="sports.html">Sports</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </header>
 
@@ -32,7 +38,7 @@
                 <article class="article-card">
                     <img src="https://images.pexels.com/photos/3408744/pexels-photo-3408744.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Mountain summit">
                     <div class="article-content">
-                        <h3>Global Summit Concludes with New Climate Accord</h3>
+                        <h3><a href="#">Global Summit Concludes with New Climate Accord</a></h3>
                         <p>World leaders have agreed to a new set of binding targets to reduce emissions, marking a significant step in international cooperation.</p>
                         <a href="#" class="read-more">Read More</a>
                     </div>
@@ -41,8 +47,17 @@
                 <article class="article-card">
                     <img src="https://images.pexels.com/photos/235615/pexels-photo-235615.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Globe showing continents">
                     <div class="article-content">
-                        <h3>Major Protests Erupt Over Economic Policies</h3>
+                        <h3><a href="#">Major Protests Erupt Over Economic Policies</a></h3>
                         <p>Thousands have taken to the streets in several capital cities to protest rising inflation and new economic measures.</p>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </article>
+                
+                <article class="article-card">
+                    <img src="https://images.pexels.com/photos/3184454/pexels-photo-3184454.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Diplomats at a table">
+                    <div class="article-content">
+                        <h3><a href="#">Trade Negotiations Stall Between Major Powers</a></h3>
+                        <p>The latest round of talks ended without an agreement, raising concerns about the future of global trade partnerships.</p>
                         <a href="#" class="read-more">Read More</a>
                     </div>
                 </article>
@@ -54,6 +69,12 @@
     <footer class="site-footer">
         <p>&copy; 2025 ProNews. All Rights Reserved.</p>
     </footer>
+    
+    <script>
+        document.getElementById('current-date').textContent = new Date().toLocaleDateString('en-US', {
+            year: 'numeric', month: 'long', day: 'numeric'
+        });
+    </script>
 
 </body>
 </html>
