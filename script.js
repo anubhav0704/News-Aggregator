@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // --- 1. CONFIGURATION & SELECTORS ---
     
-    // ⚠️ PASTE YOUR GNEWS API KEY HERE!
+    // ⚠️ I have added your API key below.
     const API_KEY = 'aa478943e85725d8278c28be17272332';
     const GNEWS_API_URL = `https://gnews.io/api/v4/search?lang=en&token=${API_KEY}`;
 
@@ -222,7 +222,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Remove 'active' from all nav links
         navLinks.forEach(link => link.classList.remove('active'));
         // Add 'active' to the one that was clicked
-        activeLink.classList.add('active');
+        activeLink.classList..add('active');
     }
 
     // Attach click event listeners to all nav links
