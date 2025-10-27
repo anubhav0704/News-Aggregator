@@ -3,8 +3,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // --- 1. CONFIGURATION & SELECTORS ---
     
-    // I have added your new API key
-    const API_KEY = '7b01b3b68467036a58f0fbd26ae51164';
+    // ⚠️ YOU MUST PASTE YOUR NEW, SECRET GNEWS API KEY HERE!
+    const API_KEY = 'cb691f1ab5ca0ee92da1c87d18f14768';
     const GNEWS_API_URL = `https://gnews.io/api/v4/search?lang=en&token=${API_KEY}`;
 
     // Get references to the HTML elements
@@ -13,6 +13,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const navLinks = document.querySelectorAll('.main-nav a');
     const siteTitle = document.querySelector('.site-title a');
     const dateElement = document.getElementById('current-date');
+    
+    // NEW selector for category widgets
+    const categoryWidgets = document.querySelectorAll('.category-widget');
 
     // Update the date on the page
     dateElement.textContent = new Date().toLocaleDateString('en-US', {
@@ -183,7 +186,32 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    // --- 3. EVENT LISTENERS ---
+    // --- 3. EVENT LISTENERS & NEW FUNCTIONS ---
+
+    /**
+     * NEW FUNCTION: Shows/hides sidebar widgets based on category
+     * @param {string} category - The category to show (e.g., "world", "home")
+     */
+    function updateSidebarWidgets(category) {
+        // Hide all category-specific widgets
+        categoryWidgets.forEach(widget => {
+            widget.style.display = 'none';
+        });
+
+        if (category === 'home') {
+            // On the homepage, show all of them
+            categoryWidgets.forEach(widget => {
+                widget.style.display = 'block';
+            });
+        } else {
+            // On a specific category page, show only that one
+            const widgetToShow = document.querySelector(`#widget-${category}`);
+            if (widgetToShow) {
+                widgetToShow.style.display = 'block';
+            }
+        }
+    }
+
 
     /**
      * Handles clicks on the navigation links.
@@ -197,13 +225,12 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!category) return; 
         
         updateActiveLink(link);
-        
+        updateSidebarWidgets(category); // <-- ADDED THIS CALL
+
         if (category === 'home') {
-            // Use a broader query for the homepage
             const articles = await fetchNews('breaking-news OR top stories', 9);
             renderHomepage(articles);
         } else {
-            // Load category page
             const articles = await fetchNews(category, 9);
             renderCategoryPage(articles, category);
         }
@@ -215,7 +242,6 @@ document.addEventListener("DOMContentLoaded", () => {
      */
     function updateActiveLink(activeLink) {
         navLinks.forEach(link => link.classList.remove('active'));
-        // **FIXED THE TYPO HERE** (was classList..add)
         activeLink.classList.add('active');
     }
 
@@ -229,7 +255,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (homeLink) {
             updateActiveLink(homeLink);
         }
-        // Use a broader query for the homepage
+        updateSidebarWidgets('home'); // <-- ADDED THIS CALL
         fetchNews('breaking-news OR top stories', 9).then(renderHomepage);
     });
 
@@ -244,8 +270,10 @@ document.addEventListener("DOMContentLoaded", () => {
         renderSidebar();
         
         // Load the homepage content
-        // **UPDATED** to a more general query to avoid errors
         fetchNews('breaking-news OR top stories', 9).then(renderHomepage);
+        
+        // Show all widgets on initial (home) load
+        updateSidebarWidgets('home'); // <-- ADDED THIS CALL
     }
 
     // Start the application
