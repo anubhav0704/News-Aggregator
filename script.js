@@ -3,11 +3,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // --- 1. CONFIGURATION & SELECTORS ---
     
-    // ⚠️ I have added your API key below.
-    const API_KEY = '3f674163ea0518648a8c0dedad76475b';
+    // I have added your new API key
+    const API_KEY = '7b01b3b68467036a58f0fbd26ae51164';
     const GNEWS_API_URL = `https://gnews.io/api/v4/search?lang=en&token=${API_KEY}`;
 
-    // Get references to the HTML elements we need to interact with
+    // Get references to the HTML elements
     const mainContent = document.querySelector('.main-content');
     const sidebarList = document.querySelector('.widget-post-list');
     const navLinks = document.querySelectorAll('.main-nav a');
@@ -33,8 +33,12 @@ document.addEventListener("DOMContentLoaded", () => {
         mainContent.innerHTML = '<div class="loader"></div>';
         
         try {
-            const response = await fetch(`${GNEWS_API_URL}&q=${query}&max=${max}`);
+            // Use encodeURIComponent to make the query safe for a URL
+            const formattedQuery = encodeURIComponent(query);
+            const response = await fetch(`${GNEWS_API_URL}&q=${formattedQuery}&max=${max}`);
+            
             if (!response.ok) {
+                // This will catch 401, 429, etc.
                 throw new Error(`API Error: ${response.status} ${response.statusText}`);
             }
             const data = await response.json();
@@ -42,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
         } catch (error) {
             console.error("Error fetching news:", error);
             // Show a user-friendly error message
-            mainContent.innerHTML = `<div class="error-message">Could not fetch news. Please check your API key or try again later.</div>`;
+            mainContent.innerHTML = `<div class="error-message">Could not fetch news. This is often due to an invalid API key or exceeding the daily request limit.</div>`;
             return null;
         }
     }
@@ -53,17 +57,15 @@ document.addEventListener("DOMContentLoaded", () => {
      */
     function renderHomepage(articles) {
         if (!articles || articles.length < 3) {
-            mainContent.innerHTML = `<div class="error-message">Not enough articles to display homepage.</div>`;
+            // If articles are null or too few, show the error
+            mainContent.innerHTML = `<div class="error-message">Not enough articles to display the homepage. The API may be having issues.</div>`;
             return;
         }
 
-        // Article 1 (Main Hero)
         const heroArticle = articles[0];
-        // Articles 2 & 3 (Secondary Heroes)
         const secondaryArticle1 = articles[1];
         const secondaryArticle2 = articles[2];
 
-        // Use template literals to build the HTML
         const html = `
             <div class="hero-grid">
                 <div class="hero-main">
@@ -87,11 +89,10 @@ document.addEventListener("DOMContentLoaded", () => {
      */
     function renderCategoryPage(articles, categoryName) {
         if (!articles || articles.length === 0) {
-            mainContent.innerHTML = `<h2 class="page-heading">${categoryName}</h2><p>No articles found for this category.</p>`;
+            mainContent.innerHTML = `<h2 class="page-heading">${categoryName} News</h2><p>No articles found for this category.</p>`;
             return;
         }
 
-        // Create an HTML string for each article and join them together
         const articlesHtml = articles
             .map(article => createArticleCard(article, 'list'))
             .join('');
@@ -107,13 +108,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /**
      * Renders the sidebar with "Top Stories".
-     * @param {Array} articles - An array of article objects.
      */
     async function renderSidebar() {
         // Fetch 4 "breaking-news" articles for the sidebar
         const articles = await fetchNews('breaking-news', 4);
         
-        if (!articles) {
+        if (!articles || articles.length === 0) {
             sidebarList.innerHTML = "<p>Could not load stories.</p>";
             return;
         }
@@ -132,17 +132,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /**
      * A helper function to create the HTML for a single article card.
-     * This avoids code duplication.
      * @param {object} article - An article object.
      * @param {'hero'|'secondary'|'list'} type - The type of card to build.
      * @returns {string} The HTML string for the card.
      */
     function createArticleCard(article, type) {
-        // Use a placeholder if no image is available
         const imageUrl = article.image || 'https://via.placeholder.com/400x220?text=No+Image';
         const author = article.source.name || 'Unknown Source';
 
-        // Different HTML structures based on card type
         if (type === 'hero') {
             return `
                 <article class="article-card">
@@ -193,19 +190,17 @@ document.addEventListener("DOMContentLoaded", () => {
      * @param {Event} e - The click event.
      */
     async function handleNavClick(e) {
-        e.preventDefault(); // Stop the browser from following the '#' link
+        e.preventDefault(); 
         const link = e.target;
         
-        // Get the category from the 'data-category' attribute
         const category = link.dataset.category;
-        if (!category) return; // Exit if the click wasn't on a valid link
+        if (!category) return; 
         
-        // Update the 'active' class on nav links
         updateActiveLink(link);
         
         if (category === 'home') {
-            // Load homepage
-            const articles = await fetchNews('technology', 9); // 'technology' is our default homepage topic
+            // Use a broader query for the homepage
+            const articles = await fetchNews('breaking-news OR top stories', 9);
             renderHomepage(articles);
         } else {
             // Load category page
@@ -219,10 +214,9 @@ document.addEventListener("DOMContentLoaded", () => {
      * @param {HTMLElement} activeLink - The link element to set as active.
      */
     function updateActiveLink(activeLink) {
-        // Remove 'active' from all nav links
         navLinks.forEach(link => link.classList.remove('active'));
-        // Add 'active' to the one that was clicked
-        activeLink.classList..add('active');
+        // **FIXED THE TYPO HERE** (was classList..add)
+        activeLink.classList.add('active');
     }
 
     // Attach click event listeners to all nav links
@@ -231,9 +225,12 @@ document.addEventListener("DOMContentLoaded", () => {
     // Attach click event listener to the site title to go home
     siteTitle.addEventListener('click', (e) => {
         e.preventDefault();
-        updateActiveLink(document.querySelector('.main-nav a[data-category="home"]'));
-        // Load homepage
-        fetchNews('technology', 9).then(renderHomepage);
+        const homeLink = document.querySelector('.main-nav a[data-category="home"]');
+        if (homeLink) {
+            updateActiveLink(homeLink);
+        }
+        // Use a broader query for the homepage
+        fetchNews('breaking-news OR top stories', 9).then(renderHomepage);
     });
 
     
@@ -247,8 +244,10 @@ document.addEventListener("DOMContentLoaded", () => {
         renderSidebar();
         
         // Load the homepage content
-        fetchNews('news', 9).then(renderHomepage);
+        // **UPDATED** to a more general query to avoid errors
+        fetchNews('breaking-news OR top stories', 9).then(renderHomepage);
     }
 
+    // Start the application
     initializePage();
 });
