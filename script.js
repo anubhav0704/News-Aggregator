@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // --- 1. CONFIGURATION & SELECTORS ---
     
     // ⚠️ I have added your API key below.
-    const API_KEY = 'aa478943e85725d8278c28be17272332';
+    const API_KEY = '3f674163ea0518648a8c0dedad76475b';
     const GNEWS_API_URL = `https://gnews.io/api/v4/search?lang=en&token=${API_KEY}`;
 
     // Get references to the HTML elements we need to interact with
@@ -247,7 +247,7 @@ document.addEventListener("DOMContentLoaded", () => {
         renderSidebar();
         
         // Load the homepage content
-        fetchNews('technology', 9).then(renderHomepage);
+        fetchNews('news', 9).then(renderHomepage);
     }
 
     initializePage();
