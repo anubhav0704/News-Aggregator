@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // ⚠️ YOU MUST PASTE YOUR NEW, SECRET GNEWS API KEY HERE!
 
-    const API_KEY = 'cb691f1ab5ca0ee92da1c87d18f14768';
+    const API_KEY = 'c7da1460de1b2095d6ee7fa958cdb5cc';
 
     const GNEWS_API_URL = `https://gnews.io/api/v4/search?lang=en&token=${API_KEY}`;
 
