@@ -190,6 +190,23 @@ h1, h2, h3, h4 {
 }
 .widget-post h4 a { color: var(--color-dark); }
 
+/* --- NEW STYLES FOR LINK LIST --- */
+.widget-link-list {
+    list-style: none; /* Removes bullets */
+}
+.widget-link-list li {
+    margin-bottom: 0.75rem;
+}
+.widget-link-list a {
+    font-family: var(--font-body);
+    font-weight: 700;
+    color: var(--color-primary);
+}
+.widget-link-list a:hover {
+    color: var(--color-dark);
+}
+/* --- END OF NEW STYLES --- */
+
 /* --- 8. Footer --- */
 .site-footer {
     background-color: var(--color-dark);
